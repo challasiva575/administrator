@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+      
+      
+spring:
+  boot:
+    admin:
+      notify:
+        slack:
+          channel: development
+          webhook-url: https://hooks.slack.com/services/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
+          ignore-changes:
+           -''
+          message: "#{instance.registration.name} (#{instance.id}) is #{event.statusInfo.status}"
+          
+
